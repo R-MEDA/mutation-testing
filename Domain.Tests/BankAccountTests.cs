@@ -79,7 +79,7 @@ namespace Domain.Tests
 			account.TransferTo(targetAccountId, 100m, "Transfer exact amount");
 
 			Assert.Equal(0m, account.Balance.Amount);
-			Assert.True(account.Events.Last() is MoneyTransferred); // Verify event was added
+			Assert.True(account.Events[^1] is MoneyTransferred); // Verify event was added
 		}
 
 		[Fact]
