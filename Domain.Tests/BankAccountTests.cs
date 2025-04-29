@@ -71,6 +71,18 @@ namespace Domain.Tests
 		}
 
 		[Fact]
+		public void TransferTo_ExactBalanceAmount_Succeeds()
+		{
+			var account = BankAccount.Open(Guid.NewGuid(), 100m);
+			var targetAccountId = new AccountId(Guid.CreateVersion7());
+
+			account.TransferTo(targetAccountId, 100m, "Transfer exact amount");
+
+			Assert.Equal(0m, account.Balance.Amount);
+			Assert.True(account.Events.Last() is MoneyTransferred); // Verify event was added
+		}
+
+		[Fact]
 		public void Close_WithZeroBalance_SetsInactive()
 		{
 			var account = BankAccount.Open(Guid.NewGuid(), 0m);
