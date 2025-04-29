@@ -25,3 +25,8 @@ To run mutation tests using the Stryker Mutator framework, follow these steps:
 
 4. **View the mutation report**  
    After the test run completes, Stryker will print a link in the terminal. Open this link in your browser to explore the full mutation testing report.
+
+### For more information about Stryker
+
+Feel free to read the official documentation here: [Stryker Mutator Documentation](https://stryker-mutator.io/).
+
